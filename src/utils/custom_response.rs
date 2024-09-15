@@ -83,13 +83,13 @@ where
     fn into_response(self) -> Response {
         let body = match self.body {
             Some(body) => body,
-            None => return (self.status_code).into_response(),
+            None => return self.status_code.into_response(),
         };
 
         let mut bytes = BytesMut::new().writer();
         if let Err(err) = serde_json::to_writer(&mut bytes, &body) {
             error!("Error serializing response body as JSON: {:?}", err);
-            return (StatusCode::INTERNAL_SERVER_ERROR).into_response();
+            return StatusCode::INTERNAL_SERVER_ERROR.into_response();
         }
 
         let bytes = bytes.into_inner().freeze();
