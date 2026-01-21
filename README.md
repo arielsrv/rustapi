@@ -64,8 +64,15 @@ To use this template as your project starting point, click "Use this template" a
 ```
 
 ### Test
-To run tests make sure MongoDB is up and running.
+To run tests make sure MongoDB is up and running. You can use the provided `docker-compose.yaml` to start a MongoDB instance:
+
+```bash
+docker compose up -d
 ```
+
+Then run the tests:
+
+```bash
 make test
 ``` 
 

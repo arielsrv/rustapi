@@ -1,7 +1,6 @@
 // Original author: Christian Gill (@gillchristian)
 // From: https://gist.github.com/gillchristian/db76e712cc02bff620b86f0cd2bfb691
 
-use async_trait::async_trait;
 use axum::extract::{FromRequestParts, Query};
 use axum::http::{request::Parts, StatusCode};
 use serde::Deserialize;
@@ -30,7 +29,6 @@ pub struct Pagination {
     pub limit: u32,
 }
 
-#[async_trait]
 impl<S> FromRequestParts<S> for Pagination
 where
     S: Send + Sync,

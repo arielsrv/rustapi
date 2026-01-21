@@ -4,14 +4,13 @@ use crate::settings::SETTINGS;
 use crate::utils::token;
 use crate::utils::token::TokenUser;
 
-use axum::{async_trait, extract::FromRequestParts, http::request::Parts, RequestPartsExt};
+use axum::{extract::FromRequestParts, http::request::Parts, RequestPartsExt};
 
 use axum_extra::{
     headers::{authorization::Bearer, Authorization},
     TypedHeader,
 };
 
-#[async_trait]
 impl<S> FromRequestParts<S> for TokenUser
 where
     S: Send + Sync,

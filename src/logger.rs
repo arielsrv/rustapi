@@ -11,5 +11,5 @@ pub fn setup() {
         env::set_var("RUST_LOG", env);
     }
 
-    tracing_subscriber::fmt::init();
+    let _ = tracing_subscriber::fmt::try_init();
 }
