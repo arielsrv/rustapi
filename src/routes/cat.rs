@@ -112,8 +112,8 @@ async fn update_cat_by_id(
         doc! { "_id": &cat_id, "user": &user.id },
         doc! { "$set": update },
     )
-        .await?
-        .map(PublicCat::from);
+    .await?
+    .map(PublicCat::from);
 
     let cat = match cat {
         Some(cat) => cat,

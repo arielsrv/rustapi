@@ -30,7 +30,7 @@ pub async fn start_api_once() {
                 .expect("Failed to start server");
         });
     })
-        .await;
+    .await;
 }
 
 pub fn use_app<F>(test: F)
