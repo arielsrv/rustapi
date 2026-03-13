@@ -30,7 +30,7 @@ async-trait = "0.1.89"
 bson = { version = "2.15.0", features = ["serde_with", "chrono-0_4"] }
 mongodb = { version = "3.5.1", features = ["compat-3-0-0"] }
 jsonwebtoken = { version = "10.3.0", features = ["rust_crypto"] }
-once_cell = "1.21.3"
+once_cell = "1.21.4"
 bcrypt = "0.19.0"
 validator = { version = "0.20.0", features = ["derive"] }
 mime = "0.3.17"
