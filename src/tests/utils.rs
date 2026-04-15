@@ -4,12 +4,17 @@ use crate::models::user::User;
 use crate::settings::SETTINGS;
 use crate::utils::models::ModelExt;
 use crate::utils::token;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 pub async fn create_user<T: AsRef<str>>(email: T) -> Result<User, Error> {
     let name = "Nahuel";
-    let password = "Password1";
+    let timestamp = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .map(|d| d.as_nanos())
+        .unwrap_or_default();
+    let password = format!("TestPassword1!{}", timestamp);
 
-    let password_hash = hash_password(password).await?;
+    let password_hash = hash_password(&password).await?;
     let user = User::new(name, email.as_ref(), password_hash);
     let user = User::create(user).await?;
 
